@@ -276,42 +276,49 @@ export default function MerkezBankasiSimulator() {
         <div className="lg:col-span-1 space-y-4">
           {/* Ekonomik Göstergeler */}
           <div className="bg-white p-4 rounded-lg shadow">
-            <h2 className="text-lg font-semibold mb-3 text-gray-700">Ekonomik Göstergeler</h2>
-            
-            <div className={`p-3 rounded-lg mb-2 ${enflasyon > 20 ? 'bg-red-50' : enflasyon > 10 ? 'bg-yellow-50' : 'bg-green-50'}`}>
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-medium">Enflasyon</span>
-                <span className="text-xl font-bold">%{enflasyon.toFixed(1)}</span>
-              </div>
-            </div>
+           <div className="bg-white p-4 rounded-lg shadow">
+  <h2 className="text-lg font-semibold mb-3 text-gray-700">Ekonomik Göstergeler</h2>
 
-            <div className={`p-3 rounded-lg mb-2 ${issizlik > 15 ? 'bg-red-50' : issizlik > 8 ? 'bg-yellow-50' : 'bg-green-50'}`}>
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-medium">İşsizlik</span>
-                <span className="text-xl font-bold">%{issizlik.toFixed(1)}</span>
-              </div>
-            </div>
+  {/* Enflasyon – Rose */}
+  <div className="p-3 rounded-lg mb-2 bg-gradient-to-r from-rose-50 to-rose-100 border border-rose-200">
+    <div className="flex justify-between items-center">
+      <span className="text-sm font-medium text-rose-800">Enflasyon</span>
+      <span className="text-xl font-bold text-rose-700">%{enflasyon.toFixed(1)}</span>
+    </div>
+  </div>
 
-            <div className={`p-3 rounded-lg mb-2 ${mbRezervi < 40 ? 'bg-red-50' : mbRezervi < 80 ? 'bg-yellow-50' : 'bg-green-50'}`}>
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-medium">MB Rezervi</span>
-                <span className="text-xl font-bold">${mbRezervi.toFixed(1)}M</span>
-              </div>
-            </div>
+  {/* İşsizlik – Amber */}
+  <div className="p-3 rounded-lg mb-2 bg-gradient-to-r from-amber-50 to-amber-100 border border-amber-200">
+    <div className="flex justify-between items-center">
+      <span className="text-sm font-medium text-amber-800">İşsizlik</span>
+      <span className="text-xl font-bold text-amber-700">%{issizlik.toFixed(1)}</span>
+    </div>
+  </div>
 
-            <div className={`p-3 rounded-lg mb-2 ${gsyhBuyume < 0 ? 'bg-red-50' : gsyhBuyume < 3 ? 'bg-yellow-50' : 'bg-green-50'}`}>
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-medium">GSYİH Büyüme</span>
-                <span className="text-xl font-bold">%{gsyhBuyume.toFixed(1)}</span>
-              </div>
-            </div>
+  {/* MB Rezervi – Sky */}
+  <div className="p-3 rounded-lg mb-2 bg-gradient-to-r from-sky-50 to-sky-100 border border-sky-200">
+    <div className="flex justify-between items-center">
+      <span className="text-sm font-medium text-sky-800">MB Rezervi</span>
+      <span className="text-xl font-bold text-sky-700">${mbRezervi.toFixed(1)}M</span>
+    </div>
+  </div>
 
-            <div className={`p-3 rounded-lg ${dolarKuru > 40 ? 'bg-red-50' : dolarKuru > 30 ? 'bg-yellow-50' : 'bg-green-50'}`}>
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-medium">Dolar Kuru</span>
-                <span className="text-xl font-bold">₺{dolarKuru.toFixed(2)}</span>
-              </div>
-            </div>
+  {/* GSYİH Büyüme – Emerald */}
+  <div className="p-3 rounded-lg mb-2 bg-gradient-to-r from-emerald-50 to-emerald-100 border border-emerald-200">
+    <div className="flex justify-between items-center">
+      <span className="text-sm font-medium text-emerald-800">GSYİH Büyüme</span>
+      <span className="text-xl font-bold text-emerald-700">%{gsyhBuyume.toFixed(1)}</span>
+    </div>
+  </div>
+
+  {/* Dolar Kuru – Indigo */}
+  <div className="p-3 rounded-lg bg-gradient-to-r from-indigo-50 to-indigo-100 border border-indigo-200">
+    <div className="flex justify-between items-center">
+      <span className="text-sm font-medium text-indigo-800">Dolar Kuru</span>
+      <span className="text-xl font-bold text-indigo-700">₺{dolarKuru.toFixed(2)}</span>
+    </div>
+  </div>
+</div>
           </div>
 
           {/* Para Politikası Araçları */}
