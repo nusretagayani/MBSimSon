@@ -242,34 +242,43 @@ export default function MerkezBankasiSimulator() {
         <p className="text-sm text-gray-600">Para politikası araçlarını kullanarak ekonomiyi yönetin</p>
       </div>
 
-      {/* Game Over Ekranı */}
-      {gameOver && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-2xl p-8 max-w-md mx-4 shadow-2xl">
-            <div className="text-center">
-              <div className="text-6xl mb-4">😢</div>
-              <h2 className="text-3xl font-bold text-red-600 mb-4">OYUN BİTTİ!</h2>
-              <p className="text-lg text-gray-700 mb-6">{gameOverReason}</p>
-              <div className="bg-gray-100 rounded-lg p-4 mb-6 text-sm text-left">
-                <p className="font-semibold mb-2">Son Durum:</p>
-                <p>• Enflasyon: %{enflasyon.toFixed(1)}</p>
-                <p>• İşsizlik: %{issizlik.toFixed(1)}</p>
-                <p>• MB Rezervi: ${mbRezervi.toFixed(1)}M</p>
-                <p>• GSYİH Büyüme: %{gsyhBuyume.toFixed(1)}</p>
-                <p>• Dolar Kuru: ₺{dolarKuru.toFixed(2)}</p>
-                <p className="mt-2 font-semibold">Toplam Süre: {history.length} ay</p>
-              </div>
-              <p className="text-sm text-gray-600 mb-4">Oyun 3 saniye içinde yeniden başlayacak...</p>
-              <button
-                onClick={resetSimulation}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
-              >
-                Hemen Yeniden Başla
-              </button>
-            </div>
-          </div>
+     {/* Game Over Ekranı */}
+{gameOver && (
+  <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    <div className="bg-white text-gray-900 rounded-2xl p-8 max-w-md mx-4 shadow-2xl">
+      <div className="text-center">
+        <div className="text-6xl mb-4">😢</div>
+        <h2 className="text-3xl font-bold text-red-600 mb-4">OYUN BİTTİ!</h2>
+
+        <p className="text-base text-gray-800 mb-6">{gameOverReason}</p>
+
+        <div className="bg-gray-50 rounded-lg p-4 mb-6 text-sm text-left border border-gray-200">
+          <p className="font-semibold mb-2 text-gray-800">Son Durum:</p>
+          <ul className="space-y-1 text-gray-800">
+            <li>• <span className="font-medium">Enflasyon:</span> <span className="font-bold text-rose-700">%{enflasyon.toFixed(1)}</span></li>
+            <li>• <span className="font-medium">İşsizlik:</span> <span className="font-bold text-amber-700">%{issizlik.toFixed(1)}</span></li>
+            <li>• <span className="font-medium">MB Rezervi:</span> <span className="font-bold text-sky-700">${mbRezervi.toFixed(1)}M</span></li>
+            <li>• <span className="font-medium">GSYİH Büyüme:</span> <span className="font-bold text-emerald-700">%{gsyhBuyume.toFixed(1)}</span></li>
+            <li>• <span className="font-medium">Dolar Kuru:</span> <span className="font-bold text-indigo-700">₺{dolarKuru.toFixed(2)}</span></li>
+          </ul>
+          <p className="mt-3 font-semibold text-gray-900">
+            Toplam Süre: {history.length} ay
+          </p>
         </div>
-      )}
+
+        <p className="text-xs text-gray-600 mb-4">Oyun 3 saniye içinde yeniden başlayacak...</p>
+
+        <button
+          onClick={resetSimulation}
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+        >
+          Hemen Yeniden Başla
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Sol Panel - Göstergeler ve Araçlar */}
